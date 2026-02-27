@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Rawal Constructions</title>
+  <meta name="description" content="Contact Rawal Constructions for a free renovation estimate." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <!-- Brand / Logo -->
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/images/logo.png" alt="Rawal Constructions logo" />
+      <span class="brand-text">Rawal Constructions</span>
+    </a>
+
+    <!-- Nav links -->
+    <nav class="nav-links">
+      <a class="active" href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-primary" href="contact.html">Free Estimate</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <h1 style="margin:0 0 10px;">Request a Free Estimate</h1>
+    <p class="lead">Send a message and we’ll get back to you promptly.</p>
+
+    <div class="grid-2" style="margin-top:14px;">
+      <div class="card">
+        <h2>Contact Info</h2>
+        <p><strong>Phone:</strong> <a href="tel:+1XXXXXXXXXX">(XXX) XXX‑XXXX</a></p>
+        <p><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+        <p><strong>Service Area:</strong> (Add area)</p>
+        <p class="small">Tip: Add business hours + license/insurance line if applicable.</p>
+      </div>
+
+      <div class="card">
+        <form class="form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+          <input name="name" placeholder="Name" required />
+          <input name="phone" placeholder="Phone" />
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="project" placeholder="Project type (Kitchen, Bath, Basement...)" />
+          <textarea name="message" placeholder="Tell us about your project (location, timeline, budget range, photos if available)"></textarea>
+          <button class="btn btn-primary" type="submit">Send Request</button>
+          <p class="small">Prefer email? <a href="mailto:youremail@example.com">Send us a message</a>.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">© <span id="y"></span> Rawal Constructions</div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
