@@ -338,3 +338,94 @@ hr{
   .nav-inner{ padding: 12px 0; }
   .brand-logo{ height: 40px; }
 }
+
+
+/* ===============================
+   MOBILE IMPROVEMENTS (IMPORTANT)
+   =============================== */
+
+@media (max-width: 768px){
+
+  /* --- Navbar cleanup --- */
+  .nav-inner{
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .nav-links{
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .nav-links a{
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  /* --- Hero layout --- */
+  .hero{
+    padding: 36px 0 28px;
+  }
+
+  .hero-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hero h1{
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  .lead{
+    font-size: 16px;
+  }
+
+  /* --- Hero image --- */
+  .hero .card{
+    padding: 12px;
+  }
+
+  .hero .card img{
+    height: 220px;
+    object-fit: cover;
+  }
+
+  /* --- Buttons --- */
+  .btn-row{
+    gap: 10px;
+  }
+
+  .btn{
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* --- Sections spacing --- */
+  .section{
+    padding: 36px 0;
+  }
+
+  /* --- Grids stack nicely --- */
+  .grid,
+  .grid-2{
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Cards breathe --- */
+  .card,
+  .feature{
+    padding: 16px;
+  }
+
+  /* --- Gallery --- */
+  .gallery{
+    grid-template-columns: 1fr;
+  }
+
+  .gallery img{
+    height: 180px;
+  }
+}
