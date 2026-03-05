@@ -26,6 +26,12 @@
         <span class="brand-text">Rawal Constructions</span>
       </a>
 
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
       <!-- Navigation -->
       <nav class="nav-links" aria-label="Primary navigation">
         <a class="active" href="index.html">Home</a>
@@ -193,6 +199,19 @@
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 
+  <script>
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    toggle.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+</script>
+
+
 </body>
 
 </html>
+
