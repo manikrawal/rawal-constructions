@@ -1,20 +1,17 @@
 /* =========================================================
-   Rawal Constructions — Static Site Styles
-   Brand palette (from logo): Orange + Charcoal/Gray
+   Rawal Constructions — Static Site Styles (Hamburger + Mobile Brand)
    Drop-in file: assets/css/styles.css
    ========================================================= */
 
 /* ---------- Theme tokens ---------- */
 :root{
-  /* Brand colors (logo-matched) */
-  --accent: #E36806;     /* orange */
-  --accent-2: #F07A1B;   /* lighter orange for gradients/hover */
-  --ink: #273039;        /* charcoal */
-  --slate: #464F59;      /* slate gray */
-  --muted: #666D77;      /* muted gray */
-  --cream: #E7DFD8;      /* warm off-white */
+  --accent: #E36806;
+  --accent-2: #F07A1B;
+  --ink: #273039;
+  --slate: #464F59;
+  --muted: #666D77;
+  --cream: #E7DFD8;
 
-  /* UI colors */
   --bg: #ffffff;
   --bg-soft: #f7f8fa;
   --card: #ffffff;
@@ -25,7 +22,6 @@
 
   --radius: 16px;
   --radius-sm: 12px;
-
   --max: 1100px;
 }
 
@@ -91,7 +87,7 @@ p{ margin: 0 0 12px; color: var(--slate); }
   gap: 12px;
 }
 
-/* Brand area with logo */
+/* Brand area */
 .brand{
   display:flex;
   align-items:center;
@@ -104,7 +100,7 @@ p{ margin: 0 0 12px; color: var(--slate); }
 .brand-logo{
   height: 44px;
   width: auto;
-  border-radius: 0; /* keeps logo crisp */
+  border-radius: 0;
 }
 
 .brand-text{
@@ -136,6 +132,31 @@ p{ margin: 0 0 12px; color: var(--slate); }
   border-color: rgba(227,104,6,.25);
 }
 
+/* ---------- Hamburger button (hidden on desktop) ---------- */
+.nav-toggle{
+  display:none;
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.nav-toggle:hover{
+  background: rgba(39,48,57,.04);
+  border-color: rgba(39,48,57,.10);
+}
+
+.nav-toggle span{
+  display:block;
+  width: 24px;
+  height: 3px;
+  background: var(--ink);
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-flex;
@@ -165,9 +186,7 @@ p{ margin: 0 0 12px; color: var(--slate); }
   color: var(--ink);
 }
 
-.btn-outline:hover{
-  background: rgba(39,48,57,.06);
-}
+.btn-outline:hover{ background: rgba(39,48,57,.06); }
 
 .btn-row{
   display:flex;
@@ -177,9 +196,7 @@ p{ margin: 0 0 12px; color: var(--slate); }
 }
 
 /* ---------- Hero ---------- */
-.hero{
-  padding: 68px 0 44px;
-}
+.hero{ padding: 68px 0 44px; }
 
 .hero-grid{
   display:grid;
@@ -279,10 +296,7 @@ li{ margin: 6px 0; }
 .gallery a:hover img{ transform: scale(1.02); }
 
 /* ---------- Forms ---------- */
-.form{
-  display:grid;
-  gap: 12px;
-}
+.form{ display:grid; gap: 12px; }
 
 input, textarea{
   width:100%;
@@ -294,14 +308,9 @@ input, textarea{
   outline:none;
 }
 
-textarea{
-  min-height: 120px;
-  resize: vertical;
-}
+textarea{ min-height: 120px; resize: vertical; }
 
-input::placeholder, textarea::placeholder{
-  color: rgba(70,79,89,.75);
-}
+input::placeholder, textarea::placeholder{ color: rgba(70,79,89,.75); }
 
 input:focus, textarea:focus{
   border-color: rgba(227,104,6,.70);
@@ -330,102 +339,126 @@ hr{
   .grid-2{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr 1fr; }
   .gallery img{ height: 180px; }
-  .brand-text{ display:none; } /* keep header compact on mobile */
-}
 
-@media (max-width: 520px){
-  .gallery{ grid-template-columns: 1fr; }
-  .nav-inner{ padding: 12px 0; }
-  .brand-logo{ height: 40px; }
+  /* IMPORTANT: show brand text on mobile */
+  .brand-text{ display:inline; }
 }
-
 
 /* ===============================
-   MOBILE IMPROVEMENTS (IMPORTANT)
+   MOBILE: Brand first + Hamburger
    =============================== */
-
 @media (max-width: 768px){
 
-  /* --- Navbar cleanup --- */
+  /* Stack header: brand banner first, hamburger top-right, menu below */
   .nav-inner{
     flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    align-items: stretch;
+    gap: 10px;
     padding: 10px 0;
   }
 
+  /* Brand becomes a banner so user sees it immediately */
+  .brand{
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(227,104,6,.10);
+    border: 1px solid rgba(227,104,6,.25);
+  }
+
+  .brand-logo{ height: 44px; }
+  .brand-text{
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  /* Show hamburger */
+  .nav-toggle{
+    display: block;
+    align-self: flex-end;
+  }
+
+  /* Hide nav links by default (hamburger controls it) */
   .nav-links{
-    justify-content: center;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
     gap: 6px;
+    justify-content: flex-start;
+  }
+
+  .nav-links.open{
+    display: flex;
+    animation: fadeDown .2s ease-out;
   }
 
   .nav-links a{
-    padding: 8px 10px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 12px;
     font-size: 14px;
   }
 
-  /* --- Hero layout --- */
-  .hero{
-    padding: 36px 0 28px;
+  /* Make the CTA button full width on mobile */
+  .nav-links .btn.btn-primary{
+    width: 100%;
+    text-align: center;
   }
 
-  .hero-grid{
-    grid-template-columns: 1fr;
-    gap: 18px;
+  /* Animate hamburger into X */
+  .nav-toggle.open span:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
   }
+  .nav-toggle.open span:nth-child(2){
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Hero layout */
+  .hero{ padding: 36px 0 28px; }
+  .hero-grid{ grid-template-columns: 1fr; gap: 18px; }
 
   .hero h1{
     font-size: 30px;
     line-height: 1.15;
   }
+  .lead{ font-size: 16px; }
 
-  .lead{
-    font-size: 16px;
-  }
-
-  /* --- Hero image --- */
-  .hero .card{
-    padding: 12px;
-  }
-
+  .hero .card{ padding: 12px; }
   .hero .card img{
     height: 220px;
     object-fit: cover;
   }
 
-  /* --- Buttons --- */
-  .btn-row{
-    gap: 10px;
-  }
-
+  /* Buttons */
+  .btn-row{ gap: 10px; }
   .btn{
     width: 100%;
     justify-content: center;
   }
 
-  /* --- Sections spacing --- */
-  .section{
-    padding: 36px 0;
-  }
+  /* Sections */
+  .section{ padding: 36px 0; }
+  .grid, .grid-2{ grid-template-columns: 1fr; }
+  .card, .feature{ padding: 16px; }
 
-  /* --- Grids stack nicely --- */
-  .grid,
-  .grid-2{
-    grid-template-columns: 1fr;
-  }
+  /* Gallery */
+  .gallery{ grid-template-columns: 1fr; }
+  .gallery img{ height: 180px; }
+}
 
-  /* --- Cards breathe --- */
-  .card,
-  .feature{
-    padding: 16px;
-  }
+@media (max-width: 520px){
+  .gallery{ grid-template-columns: 1fr; }
+  .nav-inner{ padding: 10px 0; }
+  .brand-logo{ height: 40px; }
+  .brand-text{ font-size: 17px; }
+}
 
-  /* --- Gallery --- */
-  .gallery{
-    grid-template-columns: 1fr;
-  }
-
-  .gallery img{
-    height: 180px;
-  }
+/* Dropdown animation */
+@keyframes fadeDown{
+  from{ opacity:0; transform: translateY(-6px); }
+  to{ opacity:1; transform: translateY(0); }
 }
